@@ -1,0 +1,7 @@
+name = "NCDist"
+uuid = "e0542804-0447-4d24-9d3f-2d66e181a469"
+authors = ["Johannes Hoffmann <Johannes.Hoffmann@math.uni-sb.de>"]
+version = "1.0.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
