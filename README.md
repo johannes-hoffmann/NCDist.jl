@@ -13,7 +13,7 @@ It is based on [Tobias' PhD thesis](https://publikationen.sulb.uni-saarland.de/b
 In the package manager (accessible in the REPL via `]`):
 
 ```julia
-(@v1.7) pkg> add git@github.com:johannes-hoffmann/NCDist.jl.git
+(@v1.7) pkg> add https://github.com/johannes-hoffmann/NCDist.jl
 ```
 
 Now leave the package manager (via backspace) and load the package:
@@ -247,7 +247,7 @@ L[1, 2, 3] = 1;
 L[2, 1, 3] = 1;
 ```
 
-Define the variable distributions (the first variable has a semi-circle distribution with mean `a=1` and variance `t=1`, the second variable a free Poisson distribution with default parameters):
+Define the variable distributions (the first variable has a semi-circle distribution with mean `a=0` and variance `t=1`, the second variable a free Poisson distribution with default parameters):
 
 ```julia
 var_dists = [semicircle(a=0, t=1), poisson()]
