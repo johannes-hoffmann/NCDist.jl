@@ -139,7 +139,7 @@ function distribution_worker_semicircle(
     y_values = Float64[]
     for x_value in x_values
         if use_operator
-            b = UniformScaling(x_value + y_shift * im)(mat_dim)
+            b = UniformScaling(x_value + y_shift * im)(mat_dim) - L[:, :, 1]
         else
             b = UniformScaling(y_shift * im)(mat_dim)
             b[1, 1] = x_value + y_shift * im
