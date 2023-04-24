@@ -95,7 +95,7 @@ end
 ###############################################################################
 
 """
-    distribution_rational_semicircle(L, var_dists, x_values)
+    distribution_rational_semicircle(L, x_values)
 
 Compute the distribution of a (self-adjoint) rational expression, given via the
 matrix-valued coefficients `L` of a self-adjoint linearization, with respect to
@@ -112,7 +112,7 @@ function distribution_rational_semicircle(
 end
 
 """
-    distribution_operator_semicircle(L, var_dists, x_values)
+    distribution_operator_semicircle(L, x_values)
 
 Compute the distribution of an operator-valued element, given via the
 self-adjoint matrix-valued coefficients `L`, with respect to semicircle
