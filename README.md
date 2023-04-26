@@ -5,7 +5,7 @@
 NCDist.jl is a Julia package to compute distributions as well as Brown measures of (self-adjoint) rational expressions and matrix-valued elements given the distributions of the variables.
 It provides implementations of the [subordination algorithm](https://arxiv.org/abs/1303.3196) and an [operator-valued semicircular algorithm](https://arxiv.org/abs/math/0703510) for semicircle distributions.
 
-NCDist.jl was created by [Johannes Hoffmann](https://www.math.uni-sb.de/ag/speicher/hoffmannE.html) and [Tobias Mai](https://www.math.uni-sb.de/ag/speicher/maiE.html).
+NCDist.jl was created by [Johannes Hoffmann](https://www.uni-saarland.de/lehrstuhl/speicher/team/johannes-hoffmann.html) and [Tobias Mai](https://www.math.uni-sb.de/ag/speicher/maiE.html).
 It is based on [Tobias' PhD thesis](https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/26760/1/Pflichtexemplar.pdf).
 
 ## Installation
@@ -13,7 +13,7 @@ It is based on [Tobias' PhD thesis](https://publikationen.sulb.uni-saarland.de/b
 In the package manager (accessible in the REPL via `]`):
 
 ```julia
-(@v1.7) pkg> add https://github.com/johannes-hoffmann/NCDist.jl
+(@v1.8) pkg> add https://github.com/johannes-hoffmann/NCDist.jl
 ```
 
 Now leave the package manager (via backspace) and load the package:
