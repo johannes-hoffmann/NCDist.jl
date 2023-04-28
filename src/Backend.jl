@@ -212,7 +212,8 @@ function cauchy_operator_semicircle_iteration(
     iteration_const::Union{Int, Float64} = 0.5,
     iteration_maximum::Int = 200_000,
     additional_iterations::Int = 0,
-    approximation_error::Float64 = 0.1 # error in θ # should be about 1/(4n)
+    approximation_error::Float64 = 0.1, # error in θ # should be about 1/(4n)
+    loop_breaking::Bool = true
 )
     if iteration_const > 1 || iteration_const <= 0
         error("iteration_const has to be in the interval (0,1]")
@@ -230,7 +231,7 @@ function cauchy_operator_semicircle_iteration(
         if delta(L, b, W) <= delta_bound
             break
         end
-        if mod(iteration, 100) == 0 # random variation to break deadly loops
+        if loop_breaking && mod(iteration, 100) == 0 # random variation to break deadly loops
             random_const = rand(0.01:0.01:1)
             W = (1 - random_const) * W + random_const * inv(b - eta(L, W))
         else
