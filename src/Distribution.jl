@@ -141,7 +141,7 @@ function distribution_worker_semicircle(
         if use_operator
             b = UniformScaling(x_value + y_shift * im)(mat_dim) - L[:, :, 1]
         else
-            b = UniformScaling(y_shift * im)(mat_dim)
+            b = UniformScaling(y_shift * im)(mat_dim) - L[:, :, 1]
             b[1, 1] = x_value + y_shift * im
         end
         G = cauchy_operator_semicircle_iteration(L, b; kwargs...)
