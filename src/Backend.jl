@@ -212,8 +212,9 @@ function cauchy_operator_semicircle_iteration(
     iteration_const::Union{Int, Float64} = 0.5,
     iteration_maximum::Int = 200_000,
     additional_iterations::Int = 0,
-    approximation_error::Float64 = 0.1, # error in θ # should be about 1/(4n)
-    loop_breaking::Bool = true
+    maximal_approximation_error::Float64 = 0.1, # error in θ # should be about 1/(4n)
+    loop_breaking::Bool = true,
+    maximal_delta_bound::Float64 = 0.1
 )
     if iteration_const > 1 || iteration_const <= 0
         error("iteration_const has to be in the interval (0,1]")
@@ -221,12 +222,18 @@ function cauchy_operator_semicircle_iteration(
     imag_b = (b - adjoint(b)) / (2im)
     y_shift = inv(opnorm(inv(imag_b)))
     mat_dim = size(b, 1)
-    approximation_error = minimum([approximation_error, 1 / (4 * mat_dim)])
+    approximation_error = 1 / (4 * mat_dim)
+    if maximal_approximation_error > 0
+        approximation_error = minimum([approximation_error, maximal_approximation_error])
+    end
     W = UniformScaling(-1.0im)(mat_dim)
     exitcounter = 0 # debug
     σ = y_shift * approximation_error / (1 + y_shift * approximation_error)
     # delta_bound = y_shift * approximation_error / (y_shift + approximation_error)
     delta_bound = σ * y_shift
+    if maximal_delta_bound > 0
+        delta_bound = minimum([delta_bound, maximal_delta_bound])
+    end
     for iteration in 1:iteration_maximum
         if delta(L, b, W) <= delta_bound
             break
