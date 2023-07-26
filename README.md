@@ -280,6 +280,8 @@ function shift_comparison(
         linewidth = 2,
         xlabel = "-log_10(distance from the real axis)",
         ylabel = "computed atom mass",
+        xticks = ceil(minimum(shift_range)):1:floor(maximum(shift_range)),
+        yticks = 0:0.2:1,
         xlims = (minimum(shifts), maximum(shifts)),
         ylims = (0,1),
         dpi = 300
@@ -315,7 +317,7 @@ Now we can apply this to our example:
 Choose a range of shifts and plot the results:
 
 ```julia
-    shift_range = -1.5:0.125:5.25
+    shift_range = -2.5:0.125:6.25
     shift_comparison(L, shift_range)
 ```
 
